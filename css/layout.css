@@ -1,0 +1,548 @@
+/* ==========================================================================
+   HANCO Property Developers — Layout CSS
+   Brand Design System Layout & Structure (research/typo.md Section 10 & 14)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Sticky Header: Desktop 80px / Mobile 68px (research/typo.md Section 10)
+   Default: Background #FFFFFF | Nav: #1A1A1A | CTA: #69024B
+   Sticky: rgba(255,255,255,0.95) with #E5E5E5 bottom border
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-subtle);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* Brand Lockup: Clean, Strong Typography */
+.brand-lockup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.brand-title {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.brand-lockup:hover .brand-title {
+  color: var(--brand-primary);
+}
+
+.brand-subtitle {
+  font-family: var(--font-primary);
+  font-size: 0.68rem;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Center Desktop Navigation: 14.5px / 500 / Clean Hover */
+.primary-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  height: 100%;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  height: 100%;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-link {
+  font-family: var(--font-primary);
+  font-size: var(--text-nav);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-nav);
+  letter-spacing: var(--letter-spacing-nav);
+  text-transform: none;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.nav-link[aria-expanded="true"] {
+  color: var(--brand-primary);
+}
+
+/* Active indicator in Brand Burgundy (research/typo.md Section 10) */
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: var(--brand-primary);
+}
+
+.nav-chevron {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform var(--transition-fast);
+}
+
+.nav-link[aria-expanded="true"] .nav-chevron {
+  transform: rotate(-135deg) translateY(-2px);
+}
+
+/* Header Action: Primary CTA Button (research/typo.md Section 10: Height 48px, Radius 4px, #69024B) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.btn-header-estimate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-header-estimate:hover {
+  background-color: var(--brand-dark);
+  border-color: var(--brand-dark);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   Editorial Mega-Menu Dropdown (Discover)
+   -------------------------------------------------------------------------- */
+.mega-panel {
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: min(980px, calc(100vw - 3rem));
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  z-index: 1010;
+}
+
+.mega-panel.is-open,
+.nav-item:hover .mega-panel,
+.nav-item:focus-within .mega-panel {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.mega-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.mega-column {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background-color: var(--white);
+}
+
+.mega-column:not(:last-child) {
+  border-right: 1px solid var(--border);
+}
+
+.mega-column:last-child {
+  background-color: var(--brand-light);
+}
+
+.mega-col-heading {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  font-weight: 700;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mega-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mega-link-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+}
+
+.mega-link-title {
+  font-family: var(--font-primary);
+  font-size: 1.02rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  transition: color var(--transition-fast);
+}
+
+.mega-link-desc {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.mega-link-item:hover .mega-link-title {
+  color: var(--brand-primary);
+}
+
+/* Mobile Drawer */
+.mobile-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  z-index: 1100;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.mobile-nav-toggle[aria-expanded="true"] .line-1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-nav-toggle[aria-expanded="true"] .line-2 {
+  opacity: 0;
+}
+
+.mobile-nav-toggle[aria-expanded="true"] .line-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  background-color: var(--white);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(80px + var(--space-4)) var(--container-gutter) var(--space-6);
+  transform: translateY(-100%);
+  transition: transform var(--transition-slow);
+  overflow-y: auto;
+}
+
+.mobile-drawer.is-active {
+  transform: translateY(0);
+}
+
+.mobile-drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mobile-drawer-link {
+  font-family: var(--font-primary);
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-2);
+}
+
+.mobile-drawer-link:hover {
+  color: var(--brand-primary);
+}
+
+.mobile-drawer-footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* --------------------------------------------------------------------------
+   Brand Burgundy Footer (research/typo.md Section 14)
+   Background: #69024B
+   Primary text: #FFFFFF | Secondary text: #F5EAF1 | Links: #FFFFFF (Hover #F5EAF1)
+   Borders: rgba(255,255,255,0.2)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--brand-primary);
+  color: var(--white);
+  padding-block: var(--space-9) var(--space-5);
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1.1fr 1.1fr 1.6fr;
+  gap: clamp(24px, 3.5vw, 48px);
+  padding-bottom: clamp(28px, 3.5vw, 40px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  align-items: start;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-brand-title {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: 0.12em;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0;
+}
+
+.footer-brand-desc {
+  color: var(--brand-light);
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+  max-width: 36ch;
+  margin: 0;
+  margin-top: 4px;
+}
+
+.footer-heading {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0;
+  margin-bottom: var(--space-4);
+  padding-top: 2px;
+  line-height: 1.2;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+  font-size: 14px;
+  color: var(--white);
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+  opacity: 0.9;
+}
+
+.footer-link:hover {
+  color: var(--brand-light);
+  opacity: 1;
+}
+
+.footer-contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.footer-contact-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand-light);
+  font-weight: 700;
+}
+
+.footer-contact-value {
+  color: var(--white);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.footer-bottom-bar {
+  padding-top: clamp(20px, 2.5vw, 28px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-legal-copy {
+  font-size: 12.5px;
+  color: var(--brand-light);
+  letter-spacing: 0.02em;
+}
+
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: var(--space-3);
+  font-size: 12.5px;
+  color: var(--brand-light);
+}
+
+.footer-legal-links a {
+  color: var(--white);
+  transition: color var(--transition-fast);
+}
+
+.footer-legal-links a:hover {
+  color: var(--brand-light);
+}
+
+.back-to-top-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  background-color: transparent;
+  transition: all var(--transition-fast);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--brand-dark);
+  border-color: var(--white);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints (640px, 768px, 1024px, 1280px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .primary-nav {
+    display: none;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+@media (max-width: 639px) {
+  .site-header {
+    height: 68px;
+  }
+
+  .header-inner {
+    height: 68px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

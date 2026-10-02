@@ -1,0 +1,18 @@
+{
+  "name": "hanco-property-developers",
+  "version": "1.0.0",
+  "description": "HANCO Property Developers - Architectural Editorial Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "hanco",
+    "palakkad",
+    "property-developers",
+    "kerala-rera"
+  ],
+  "author": "HANCO Property Developers Pvt. Ltd.",
+  "license": "UNLICENSED"
+}

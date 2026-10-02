@@ -1,0 +1,471 @@
+/* ==========================================================================
+   HANCO Property Developers — Base CSS
+   Brand Design System specification based on research/typo.md
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* ==========================================================================
+     1. BRAND TOKENS (research/typo.md Section 1 & Section 15)
+     ========================================================================== */
+  --brand-primary: #69024B;          /* Brand Burgundy — CTA, Key highlights, Active states */
+  --brand-dark: #4A0136;             /* Brand Dark — Hover states, Darker UI states, Footer accents */
+  --brand-light: #F5EAF1;            /* Brand Light — Soft section backgrounds, Highlight boxes */
+
+  /* ==========================================================================
+     2. NEUTRALS (research/typo.md Section 2, 3 & Section 15)
+     ========================================================================== */
+  --white: #FFFFFF;                  /* Pure White — Primary canvas (75–85%) */
+  --text-primary: #1A1A1A;           /* Primary text & Headings */
+  --text-secondary: #666666;         /* Secondary / Supporting descriptions */
+  --text-muted: #8A8A8A;             /* Captions / Metadata / Helper text */
+  --border: #E5E5E5;                 /* Borders / Card boundaries / Dividers */
+  --background-light: #FAFAFA;       /* Alternate section background / subtle separation */
+
+  /* ==========================================================================
+     3. TYPOGRAPHY SYSTEM (research/typo.md Section 7, 15 & 16)
+     ========================================================================== */
+  --font-primary: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Manrope", sans-serif;
+  --font-display: "Manrope", sans-serif;
+  --font-mono: "Space Mono", Consolas, monospace;
+
+  /* Font Weights (400, 500, 600, 700, 800) */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Typography Scale Tokens */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+  --text-4xl: 36px;
+  --text-5xl: 48px;
+  --text-6xl: 64px;
+
+  /* Fluid Hierarchical Headings & Text */
+  --text-display-hero: clamp(40px, 5.2vw, 64px);
+  --text-display-page: clamp(32px, 3.8vw, 48px);
+  --text-display-section: clamp(28px, 3.2vw, 44px);
+  --text-h1: clamp(40px, 5.2vw, 64px);
+  --text-h2: clamp(32px, 3.8vw, 48px);
+  --text-h3: clamp(24px, 2.6vw, 34px);
+  --text-h4: clamp(20px, 2.0vw, 26px);
+  --text-h5: clamp(17px, 1.5vw, 20px);
+
+  --text-card-title: var(--text-2xl);
+  --text-subhead: var(--text-lg);
+  --text-body-large: var(--text-lg);
+  --text-body: var(--text-base);
+  --text-small: var(--text-sm);
+  --text-caption: var(--text-xs);
+  --text-label: 12px;
+  --text-nav: 14.5px;
+  --text-micro: 11px;
+  --text-stat: clamp(38px, 4.2vw, 60px);
+  --text-project-title: var(--text-card-title);
+
+  /* Line Heights */
+  --line-height-h1: 1.08;
+  --line-height-h2: 1.12;
+  --line-height-h3: 1.20;
+  --line-height-h4: 1.25;
+  --line-height-h5: 1.30;
+  --line-height-hero: 1.08;
+  --line-height-page: 1.12;
+  --line-height-section: 1.18;
+  --line-height-card: 1.25;
+  --line-height-body-large: 1.60;
+  --line-height-body: 1.60;
+  --line-height-small: 1.50;
+  --line-height-caption: 1.40;
+  --line-height-nav: 1.40;
+  --line-height-button: 1.00;
+  --line-height-overline: 1.20;
+  --line-height-tight: 1.12;
+
+  /* Letter Spacing */
+  --letter-spacing-hero: -0.025em;
+  --letter-spacing-page: -0.02em;
+  --letter-spacing-section: -0.015em;
+  --letter-spacing-card: -0.01em;
+  --letter-spacing-stat: -0.02em;
+  --letter-spacing-body: -0.005em;
+  --letter-spacing-label: 1.5px;
+  --letter-spacing-nav: 0.01em;
+  --letter-spacing-micro: 0.12em;
+
+  /* ==========================================================================
+     4. SPACING SYSTEM (research/typo.md Section 15)
+     ========================================================================== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 96px;
+  --space-11: 120px;
+
+  /* Spacing Aliases */
+  --space-2xs: var(--space-1);
+  --space-xs: var(--space-1);
+  --space-sm: var(--space-3);
+  --space-md: var(--space-4);
+  --space-lg: var(--space-5);
+  --space-xl: var(--space-6);
+  --space-2xl: var(--space-7);
+  --space-3xl: var(--space-8);
+  --space-80: var(--space-9);
+  --space-120: var(--space-11);
+
+  --section-padding-desktop: 80px;
+  --section-padding-mobile: 64px;
+
+  --rhythm-label-to-heading: 12px;
+  --rhythm-heading-to-body: 16px;
+  --rhythm-body-to-action: 24px;
+  --rhythm-action-to-boundary: 32px;
+
+  /* ==========================================================================
+     5. RADIUS SYSTEM (research/typo.md Section 15)
+     ========================================================================== */
+  --radius-sm: 4px;   /* Button, Input, Badges */
+  --radius-md: 8px;   /* Card, Images */
+  --radius-lg: 12px;  /* Large Container / Panels */
+
+  /* ==========================================================================
+     6. LAYOUT (research/typo.md Section 15)
+     ========================================================================== */
+  --container: 1280px;
+  --container-max-width: 1280px;
+  --page-padding: 40px;
+  --container-padding-inline: 40px;
+  --container-gutter: 40px;
+
+  --heading-max-width: 720px;
+  --body-max-width: 66ch;
+
+  --grid-columns-desktop: repeat(12, minmax(0, 1fr));
+  --grid-columns-tablet: repeat(8, minmax(0, 1fr));
+  --grid-columns-mobile: repeat(4, minmax(0, 1fr));
+  --grid-gap: 24px;
+
+  /* ==========================================================================
+     7. TRANSITIONS (research/typo.md Section 15)
+     ========================================================================== */
+  --transition-fast: 150ms ease;
+  --transition: 250ms ease;
+  --transition-slow: 500ms ease;
+  --transition-smooth: 250ms ease-out;
+
+  /* ==========================================================================
+     8. SHADOWS & HAIRLINES
+     ========================================================================== */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 8px 24px rgba(105, 2, 75, 0.08);
+  --shadow-hover: 0 12px 32px rgba(105, 2, 75, 0.12);
+
+  /* ==========================================================================
+     9. SEMANTIC & COMPATIBILITY ALIASES
+     ========================================================================== */
+  --color-primary: var(--brand-primary);
+  --color-primary-dark: var(--brand-dark);
+  --color-primary-light: var(--brand-light);
+
+  --color-accent: var(--brand-primary);
+  --color-accent-light: var(--brand-light);
+  --color-accent-hover: var(--brand-dark);
+
+  --color-white: var(--white);
+  --color-background: var(--background-light);
+  --color-gray-light: var(--background-light);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border);
+  --color-border-dark: rgba(255, 255, 255, 0.2);
+
+  --color-text: var(--text-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-bg-base: var(--white);
+  --color-bg-surface: var(--background-light);
+  --color-bg-white: var(--white);
+  --color-bg-elevated: var(--white);
+  --color-bg-dark: var(--brand-primary);
+  --color-bg-dark-surface: var(--brand-dark);
+  --color-bg-primary-light: var(--brand-light);
+  --color-bg-brand-light: var(--brand-light);
+
+  --color-text-inverse: var(--white);
+  --color-text-inverse-muted: var(--brand-light);
+  --color-text-olive: var(--brand-primary);
+  --color-text-brass: var(--brand-primary);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-dark);
+  --color-accent-subtle: var(--brand-light);
+
+  --color-border-brass: var(--brand-primary);
+
+  --color-cta-bg: var(--brand-primary);
+  --color-cta-text: var(--white);
+  --color-cta-hover: var(--brand-dark);
+
+  --color-btn-sec-bg: var(--white);
+  --color-btn-sec-text: var(--brand-primary);
+  --color-btn-sec-border: var(--brand-primary);
+  --color-btn-sec-hover-bg: var(--brand-primary);
+  --color-btn-sec-hover-text: var(--white);
+
+  /* Legacy mappings */
+  --color-deep-olive: var(--brand-primary);
+  --color-muted-olive: var(--text-secondary);
+  --color-brass: var(--brand-primary);
+  --color-deep-charcoal: var(--text-primary);
+  --color-warm-ivory: var(--brand-light);
+  --color-soft-sand: var(--background-light);
+}
+
+/* ==========================================================================
+   Document Resets & Base Elements
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  color: var(--text-primary);
+  background-color: var(--white);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Headings System — Bold, Clean & Architectural (research/typo.md Section 7 & 16) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  letter-spacing: var(--letter-spacing-section);
+  line-height: var(--line-height-tight);
+}
+
+.heading-brand {
+  color: var(--brand-primary);
+}
+
+/* Editorial / Display font class aliases */
+.font-serif,
+.display-serif,
+.hero-headline-serif {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  font-size: var(--text-h1);
+  line-height: var(--line-height-h1);
+  letter-spacing: var(--letter-spacing-hero);
+  font-weight: var(--font-weight-bold);
+  max-width: var(--heading-max-width);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  line-height: var(--line-height-h2);
+  letter-spacing: var(--letter-spacing-section);
+  font-weight: var(--font-weight-bold);
+  max-width: var(--heading-max-width);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  line-height: var(--line-height-h3);
+  letter-spacing: var(--letter-spacing-card);
+  font-weight: var(--font-weight-semibold);
+}
+
+h4 {
+  font-size: var(--text-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-semibold);
+}
+
+h5 {
+  font-size: var(--text-h5);
+  line-height: var(--line-height-h5);
+  font-weight: var(--font-weight-semibold);
+}
+
+h6 {
+  font-size: var(--text-base);
+  line-height: 1.4;
+  font-weight: var(--font-weight-semibold);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: var(--text-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
+  max-width: var(--body-max-width);
+  margin-bottom: 1.2em;
+}
+
+p.p-primary {
+  color: var(--text-primary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--brand-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==========================================================================
+   Section Overlines & Monospace Utilities (research/typo.md Section 7 & 12)
+   ========================================================================== */
+.label-eyebrow,
+.overline {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: var(--text-label);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  line-height: var(--line-height-overline);
+  margin-bottom: var(--rhythm-label-to-heading);
+}
+
+.label-eyebrow-accent,
+.overline-accent {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-size: var(--text-label);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  line-height: var(--line-height-overline);
+  margin-bottom: var(--rhythm-label-to-heading);
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: var(--letter-spacing-micro);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.label-mono-accent {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: var(--letter-spacing-micro);
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Global Content Container System (research/typo.md Section 15: 1280px / 40px)
+   ========================================================================== */
+.site-container,
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-inline);
+}
+
+@media (max-width: 1023px) {
+  :root {
+    --container-padding-inline: 32px;
+    --section-padding-desktop: 64px;
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --container-padding-inline: 20px;
+    --section-padding-desktop: 48px;
+  }
+}
+
+/* Selection & Focus */
+::selection {
+  background-color: var(--brand-primary);
+  color: var(--white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

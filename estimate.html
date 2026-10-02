@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Residence Estimator — Evaluate spatial, micro-location, and investment parameters to find the ideal Hanco residence in Palakkad, Kerala.">
+  <title>Residence Estimator & Spatial Matcher | HANCO Property Developers</title>
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/base.css?v=4">
+  <link rel="stylesheet" href="css/layout.css?v=4">
+  <link rel="stylesheet" href="css/components.css?v=4">
+  <link rel="stylesheet" href="css/pages.css?v=4">
+  <link rel="stylesheet" href="css/estimate.css?v=4">
+</head>
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header" role="banner">
+    <div class="site-container header-inner">
+      <a href="index.html" class="brand-lockup">
+        <span class="brand-title">HANCO</span>
+        <span class="brand-subtitle">Property Developers · Palakkad · Est. 2011</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Main Navigation">
+        <ul class="nav-list" role="menubar">
+          <li class="nav-item" role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li class="nav-item" role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li class="nav-item" role="none"><a href="projects.html" class="nav-link" role="menuitem">Projects</a></li>
+          <li class="nav-item" role="none"><a href="services.html" class="nav-link" role="menuitem">Services</a></li>
+          <li class="nav-item" role="none"><a href="estimate.html" class="nav-link active" role="menuitem" aria-current="page">Estimate</a></li>
+          <li class="nav-item" role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="projects.html" class="btn-secondary" style="font-size: 0.75rem; padding: 10px 16px;">
+          View Projects
+        </a>
+
+        <!-- Mobile Drawer Toggle -->
+        <button type="button" class="mobile-nav-toggle" aria-label="Toggle navigation drawer" aria-expanded="false" id="mobile-toggle-btn">
+          <span class="hamburger-line line-1"></span>
+          <span class="hamburger-line line-2"></span>
+          <span class="hamburger-line line-3"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <aside class="mobile-drawer" id="mobile-drawer-menu" aria-label="Mobile Navigation Drawer">
+    <div class="mobile-drawer-links">
+      <span class="label-eyebrow-accent">Navigation</span>
+      <a href="index.html" class="mobile-drawer-link">Home</a>
+      <a href="about.html" class="mobile-drawer-link">About</a>
+      <a href="projects.html" class="mobile-drawer-link">Projects</a>
+      <a href="services.html" class="mobile-drawer-link">Services</a>
+      <a href="estimate.html" class="mobile-drawer-link" aria-current="page">Estimate</a>
+      <a href="contact.html" class="mobile-drawer-link">Contact</a>
+    </div>
+    <div class="mobile-drawer-footer">
+      <span class="label-mono">Hanco Headquarters</span>
+      <p style="font-size: 1.1rem; color: var(--color-text-primary); margin: 0;">+91 81290 53222</p>
+      <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin: 0;">info@hanco.in</p>
+      <span class="label-mono" style="margin-top: 6px;">Mani Iyer Road, Kalpathy, Palakkad — 678003</span>
+    </div>
+  </aside>
+
+  <main id="main-content">
+    
+    <!-- Editorial Page Header -->
+    <header class="inner-page-header">
+      <div class="site-container">
+        <h1 class="inner-page-title">Find Your Palakkad Residence</h1>
+      </div>
+    </header>
+
+    <div class="site-container estimate-container">
+      <div class="estimate-layout">
+
+        <!-- Left Step Panels -->
+        <div>
+          <!-- Step Tracker -->
+          <nav class="steps-progress-bar" aria-label="Evaluation Progress">
+            <span class="step-indicator-item is-active">01 · Purpose</span>
+            <span class="step-indicator-item">02 · Location</span>
+            <span class="step-indicator-item">03 · Space</span>
+            <span class="step-indicator-item">04 · Budget</span>
+            <span class="step-indicator-item">05 · Priorities</span>
+          </nav>
+
+          <!-- Step 1: Purpose -->
+          <div class="step-panel is-active" data-step="1">
+            <div class="step-title-group">
+              <span class="label-mono">Step 01 of 05</span>
+              <h2>What is your primary living intention?</h2>
+              <p>Select the purpose that best reflects your multi-year horizon.</p>
+            </div>
+
+            <div class="step-options-grid">
+              <div class="option-card-radio is-selected" data-field="purpose" data-val="Family Residence">
+                <span class="option-title">Primary Family Hearth</span>
+                <span class="option-desc">Central living close to Palakkad's best schools, healthcare, and civil institutions.</span>
+              </div>
+              <div class="option-card-radio" data-field="purpose" data-val="NRI Sanctuary">
+                <span class="option-title">NRI Vacation & Retirement</span>
+                <span class="option-desc">A secure, low-maintenance home for seasonal visits and long-term peaceful retirement.</span>
+              </div>
+              <div class="option-card-radio" data-field="purpose" data-val="Multi-Generational">
+                <span class="option-title">Multi-Generational Living</span>
+                <span class="option-desc">Generous room proportions, acoustic separation, and ground-level mobility access.</span>
+              </div>
+              <div class="option-card-radio" data-field="purpose" data-val="Rental Investment">
+                <span class="option-title">High-Yield Asset Allocation</span>
+                <span class="option-desc">High rental demand corridors with corporate and administrative tenant occupancy.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Location -->
+          <div class="step-panel" data-step="2">
+            <div class="step-title-group">
+              <span class="label-mono">Step 02 of 05</span>
+              <h2>Which Palakkad micro-location do you prefer?</h2>
+              <p>Each neighborhood has distinct wind flow, cultural rhythms, and connectivity.</p>
+            </div>
+
+            <div class="step-options-grid">
+              <div class="option-card-radio is-selected" data-field="location" data-val="Stadium Bypass Road">
+                <span class="option-title">Stadium Bypass Road</span>
+                <span class="option-desc">The modern civic spine of Palakkad. Minutes from Civil Station and NH highway connectivity.</span>
+              </div>
+              <div class="option-card-radio" data-field="location" data-val="Vadakkanthara Heritage">
+                <span class="option-title">Vadakkanthara Corridor</span>
+                <span class="option-desc">Historic temple avenue with deep cultural heritage, leafy streets, and calm atmosphere.</span>
+              </div>
+              <div class="option-card-radio" data-field="location" data-val="Mattumantha Riverbank">
+                <span class="option-title">Mattumantha (Kalpathy River)</span>
+                <span class="option-desc">Panoramic river views, fresh mountain breezes, and views of the Malampuzha foothills.</span>
+              </div>
+              <div class="option-card-radio" data-field="location" data-val="Flexible / Any Prime Location">
+                <span class="option-title">Flexible / Best Architectural Match</span>
+                <span class="option-desc">Open to any prime Palakkad neighborhood offering superior floor plans and amenities.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Space -->
+          <div class="step-panel" data-step="3">
+            <div class="step-title-group">
+              <span class="label-mono">Step 03 of 05</span>
+              <h2>Select your preferred configuration & floor area</h2>
+              <p>All Hanco residences are designed with dedicated utility balconies and natural cross-ventilation.</p>
+            </div>
+
+            <div class="step-options-grid">
+              <div class="option-card-radio" data-field="config" data-val="2 BHK Compact (1,030 sq.ft)">
+                <span class="option-title">2 BHK Compact</span>
+                <span class="option-desc">1,030 – 1,120 Sq.Ft · Efficient spatial planning, optimal for couples or small families.</span>
+              </div>
+              <div class="option-card-radio" data-field="config" data-val="2 BHK Generous (1,180 sq.ft)">
+                <span class="option-title">2 BHK Standard</span>
+                <span class="option-desc">1,180 – 1,240 Sq.Ft · Enhanced dining space and wide shaded balcony.</span>
+              </div>
+              <div class="option-card-radio is-selected" data-field="config" data-val="3 BHK (1,480 sq.ft)">
+                <span class="option-title">3 BHK Generous</span>
+                <span class="option-desc">1,350 – 1,480 Sq.Ft · Three master-scale bedrooms, dedicated foyer, and dual balconies.</span>
+              </div>
+              <div class="option-card-radio" data-field="config" data-val="Top-Floor Penthouse">
+                <span class="option-title">Panoramic Penthouse Tier</span>
+                <span class="option-desc">1,600+ Sq.Ft · Top-floor vantage with uninterrupted Western Ghats skyline views.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Budget -->
+          <div class="step-panel" data-step="4">
+            <div class="step-title-group">
+              <span class="label-mono">Step 04 of 05</span>
+              <h2>What is your planned investment bracket?</h2>
+              <p>Pricing is transparent with no hidden overheads, fully disclosed under K-RERA norms.</p>
+            </div>
+
+            <div class="step-options-grid">
+              <div class="option-card-radio" data-field="budget" data-val="₹45 Lakhs – ₹60 Lakhs">
+                <span class="option-title">₹45 Lakhs – ₹60 Lakhs</span>
+                <span class="option-desc">Ideal for boutique 2 BHK residences at Hanco Krishna Leela in Vadakkanthara.</span>
+              </div>
+              <div class="option-card-radio" data-field="budget" data-val="₹60 Lakhs – ₹80 Lakhs">
+                <span class="option-title">₹60 Lakhs – ₹80 Lakhs</span>
+                <span class="option-desc">Comprehensive 2 & 3 BHK residences across Stadium Bypass and riverfront zones.</span>
+              </div>
+              <div class="option-card-radio is-selected" data-field="budget" data-val="₹80 Lakhs – ₹1.15 Crore">
+                <span class="option-title">₹80 Lakhs – ₹1.15 Crore</span>
+                <span class="option-desc">Premium high-rise 3 BHK apartments at Fort Heights Tower 2 with rooftop amenities.</span>
+              </div>
+              <div class="option-card-radio" data-field="budget" data-val="₹1.15 Crore+">
+                <span class="option-title">₹1.15 Crore and above</span>
+                <span class="option-desc">Top-floor flagship twin-tower suites with bespoke interior execution.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5: Priorities -->
+          <div class="step-panel" data-step="5">
+            <div class="step-title-group">
+              <span class="label-mono">Step 05 of 05</span>
+              <h2>What is your highest architectural priority?</h2>
+              <p>Select what matters most to your day-to-day well-being.</p>
+            </div>
+
+            <div class="step-options-grid">
+              <div class="option-card-radio is-selected" data-field="priority" data-val="Rooftop Pool & Wellness">
+                <span class="option-title">Rooftop Pool & Wellness</span>
+                <span class="option-desc">Elevated swimming pool, modern fitness club, and private preview theatre.</span>
+              </div>
+              <div class="option-card-radio" data-field="priority" data-val="Riverfront Serenity">
+                <span class="option-title">Riverfront Tranquility</span>
+                <span class="option-desc">Direct view of the Kalpathy River with natural cool breezes and zero traffic sound.</span>
+              </div>
+              <div class="option-card-radio" data-field="priority" data-val="Heritage Ambience">
+                <span class="option-title">Heritage Atmosphere</span>
+                <span class="option-desc">Courtyard architecture with terracotta finishes, near traditional temple streets.</span>
+              </div>
+              <div class="option-card-radio" data-field="priority" data-val="EV & Green Systems">
+                <span class="option-title">Green & EV Ready</span>
+                <span class="option-desc">In-house sewage treatment plant, organic waste converter, and EV charging points.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 6: Final Results Screen -->
+          <div class="step-panel" data-step="6">
+            <div class="step-title-group">
+              <span class="label-mono-accent">Evaluation Complete · 98% Match</span>
+              <h2>Your Recommended Residence Dossier</h2>
+              <p>Based on your criteria, your ideal dwelling is confirmed:</p>
+            </div>
+
+            <div style="background: var(--color-bg-surface); padding: var(--space-xl); border: 1px solid var(--color-border); margin-block: var(--space-md);">
+              <h3 style="font-size: 2rem;">Hanco Fort Heights · Tower 2</h3>
+              <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-accent); margin-top: 4px;">
+                Stadium Bypass Road, Palakkad · K-RERA/PRJ/PKD/009/2022
+              </p>
+              <p style="margin-top: 12px; font-size: 0.95rem;">
+                A perfect match for your 3 BHK requirement with Western Ghats mountain vistas, rooftop infinity-edge pool, private acoustic theatre, and dedicated EV charging bays.
+              </p>
+
+              <div style="margin-top: 24px; display: flex; gap: 16px; flex-wrap: wrap;">
+                <a href="project-fort-heights.html" class="btn btn-primary">View Full Project Dossier →</a>
+                <a href="contact.html" class="btn btn-secondary">Schedule Site Walkthrough</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Navigation Controls -->
+          <div class="step-nav-buttons">
+            <button type="button" class="btn-secondary" data-step-prev style="visibility: hidden;">
+              ← Previous Step
+            </button>
+            <button type="button" class="btn-primary" data-step-next>
+              Continue to Next Step →
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Sticky Sidebar Dossier Summary -->
+        <aside class="estimate-sidebar-summary" aria-label="Real-time Evaluation Summary">
+          <span class="label-mono-accent">Real-Time Evaluation Summary</span>
+          
+          <div>
+            <div class="label-mono">Calculated Recommendation</div>
+            <h3 style="font-size: 1.6rem; margin-top: 4px;" data-sidebar-match>Hanco Fort Heights</h3>
+          </div>
+
+          <div class="summary-spec-list">
+            <div class="summary-spec-row">
+              <span class="summary-spec-k">Micro-Location</span>
+              <span class="summary-spec-v" data-sidebar-location>Stadium Bypass Road</span>
+            </div>
+            <div class="summary-spec-row">
+              <span class="summary-spec-k">Configuration</span>
+              <span class="summary-spec-v" data-sidebar-config>3 BHK (1,480 sq.ft)</span>
+            </div>
+            <div class="summary-spec-row">
+              <span class="summary-spec-k">Estimated Price</span>
+              <span class="summary-spec-v" style="color: var(--color-accent);" data-sidebar-price>₹78L – ₹1.12 Cr</span>
+            </div>
+            <div class="summary-spec-row">
+              <span class="summary-spec-k">Regulatory Status</span>
+              <span class="summary-spec-v">K-RERA Registered</span>
+            </div>
+          </div>
+
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.4;">
+            Estimates include undivided share of land (UDS), dedicated car parking, and statutory infrastructure reserves.
+          </p>
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-container">
+      
+      <div class="footer-top-grid">
+        
+        <!-- Col 1: Brand -->
+        <div class="footer-brand-col">
+          <span class="footer-brand-title">HANCO</span>
+          <span class="label-mono" style="color: rgba(255, 255, 255, 0.6); margin-top: -6px;">Property Developers</span>
+          <p class="footer-brand-desc">
+            A property development house dedicated to thoughtful design, quality construction and enduring value across Palakkad, Kerala.
+          </p>
+        </div>
+
+        <!-- Col 2: Projects -->
+        <div>
+          <h4 class="footer-heading">Projects</h4>
+          <ul class="footer-links">
+            <li><a href="project-fort-heights.html" class="footer-link">Hanco Fort Heights</a></li>
+            <li><a href="project-krishna-leela.html" class="footer-link">Hanco Krishna Leela</a></li>
+            <li><a href="projects.html#sivam" class="footer-link">Hanco Sivam</a></li>
+            <li><a href="projects.html" class="footer-link">All Projects</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Our Services</a></li>
+            <li><a href="estimate.html" class="footer-link">Cost Estimator</a></li>
+            <li><a href="about.html#trust" class="footer-link">Quality &amp; Trust</a></li>
+            <li><a href="contact.html" class="footer-link">Contact HQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact -->
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-value">
+              5/479, Janaki Kripa, Mani Iyer Road,<br>
+              Kalpathy P.O., Palakkad – 678003,<br>
+              Kerala, India
+            </span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-value">+91 81290 53222</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-value">info@hanco.in</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="footer-legal-copy">
+          © 2026 HANCO PROPERTY DEVELOPERS PRIVATE LIMITED.
+        </div>
+
+        <div class="footer-bottom-right">
+          <div class="footer-legal-links">
+            <a href="about.html">Privacy Policy</a>
+            <span>·</span>
+            <a href="about.html">Terms</a>
+            <span>·</span>
+            <a href="about.html">Website by Yourabh</a>
+          </div>
+
+          <!-- Back to top button -->
+          <button type="button" class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});" aria-label="Back to top">
+            <span aria-hidden="true">↑</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initNavigation } from './js/nav.js';
+    import { initFullEstimator } from './js/estimate.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initNavigation();
+      initFullEstimator();
+    });
+  </script>
+</body>
+</html>

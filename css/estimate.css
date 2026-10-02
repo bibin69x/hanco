@@ -1,0 +1,209 @@
+/* ==========================================================================
+   HANCO Property Developers — Estimate Module CSS
+   Interactive 5-Step Residence Matcher (research/typo.md)
+   ========================================================================== */
+
+.estimate-page-header {
+  padding-block: clamp(40px, 4.5vw, 56px) clamp(24px, 2.5vw, 36px);
+  border-bottom: 1px solid var(--border);
+  background-color: var(--brand-light);
+}
+
+.estimate-container {
+  padding-block: clamp(32px, 3.5vw, 48px) clamp(40px, 4.5vw, 64px);
+}
+
+.estimate-layout {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(28px, 3vw, 44px);
+  align-items: start;
+}
+
+/* Progress Tracker */
+.steps-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(20px, 2.2vw, 28px);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.step-indicator-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--text-muted);
+}
+
+.step-indicator-item.is-active {
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+.step-indicator-item.is-completed {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Step Panels */
+.step-panel {
+  display: none;
+  flex-direction: column;
+  gap: clamp(18px, 2vw, 26px);
+}
+
+.step-panel.is-active {
+  display: flex;
+}
+
+.step-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.step-title-group h2 {
+  font-family: var(--font-primary);
+  font-size: clamp(24px, 2.6vw, 34px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.step-title-group p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.step-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.option-card-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: clamp(16px, 1.8vw, 22px);
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.option-card-radio:hover {
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-subtle);
+}
+
+.option-card-radio.is-selected {
+  background-color: var(--white);
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 2px var(--brand-primary);
+}
+
+.option-title {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.option-desc {
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Step Navigation Actions */
+.step-nav-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: clamp(20px, 2.5vw, 32px);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+/* Real-Time Dossier Summary Card (Sticky) */
+.estimate-sidebar-summary {
+  position: sticky;
+  top: 96px;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: clamp(22px, 2.4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.summary-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.summary-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.summary-spec-k {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.summary-spec-v {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.summary-spec-v[data-sidebar-price] {
+  color: var(--brand-primary);
+  font-size: 1.05rem;
+}
+
+.summary-spec-v[data-sidebar-match] {
+  color: var(--brand-primary);
+}
+
+@media (max-width: 1023px) {
+  .estimate-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .step-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .estimate-sidebar-summary {
+    position: static;
+  }
+}
+
