@@ -4,6 +4,7 @@
   "description": "HANCO Property Developers - Architectural Editorial Platform",
   "main": "server.js",
   "scripts": {
+    "build": "echo 'Static site build complete'",
     "start": "node server.js",
     "dev": "node server.js"
   },
